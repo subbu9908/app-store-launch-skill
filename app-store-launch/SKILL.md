@@ -177,11 +177,19 @@ These are the screens beginners get stuck on the longest. Walk each one:
 - Target audience & ads declaration
 - Government apps / financial features declarations if relevant
 
-**Apple App Store Connect:**
-- App Privacy ("Data collection") questionnaire
-- Age rating
+**Apple App Store Connect (more forms than Google — work the full
+`references/apple-app-store-checklist.md` top to bottom):**
+- **Agreements, Tax & Banking** (App Store Connect → Business) — must be
+  Active, especially for paid / in-app-purchase apps; #1 silent blocker
+- **App Information** (app-level): privacy policy URL, category, content
+  rights, age rating, license agreement
+- **Pricing and Availability** (price tier + countries)
+- **App Privacy** nutrition-label questionnaire (separate form, must match the
+  app's **Privacy Manifest** `PrivacyInfo.xcprivacy`)
+- **App Review Information**: demo account if login, contact, reviewer notes
+- Apple build-side gates: Privacy Manifest, Info.plist usage strings, ATT,
+  Sign in with Apple (if social login), in-app account deletion
 - Export compliance (encryption) question
-- Sign-in info for the reviewer if the app has login (give them a test account)
 
 ## Phase 6 — Testing Tracks (recommend, don't skip)
 

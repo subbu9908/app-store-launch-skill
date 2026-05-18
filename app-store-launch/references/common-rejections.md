@@ -30,6 +30,13 @@ plain words, then give the exact fix.
 | "Account deletion required" | App has account creation but no in-app delete | Add an in-app delete-account path |
 | Build doesn't appear in App Store Connect | Processing/export-compliance not answered | Wait for processing; answer encryption question; re-select build |
 | Duplicate build number | Reused Build number | Increment Build in Xcode and re-archive |
+| Email ITMS-91053 / 91056 | Missing/incomplete **Privacy Manifest** (PrivacyInfo.xcprivacy) for required-reason APIs or an SDK | Add/fix `PrivacyInfo.xcprivacy`; update SDKs that ship their own manifest; re-upload |
+| ITMS-90683 "Missing purpose string" | Used a sensitive API with no Info.plist usage description | Add the matching `NS...UsageDescription` string and re-archive |
+| Guideline 4.8 sign-in | Social/3rd-party login without Sign in with Apple | Add Sign in with Apple as an equivalent option |
+| Guideline 5.1.1(v) | Account creation but no in-app account deletion | Add an in-app delete-account flow |
+| ITMS-90809 / invalid binary | Deprecated API, missing icon size, non-public API, bad architecture | Read the exact ITMS message; fix the named item; re-archive |
+| ATT / IDFA rejection | Tracks users but no ATT prompt or `NSUserTrackingUsageDescription` | Implement the ATT prompt + add the usage string, or stop tracking |
+| Agreement not active | Paid Apps Agreement / Tax / Banking incomplete | Complete App Store Connect → Business; wait for status = Active |
 
 ## Pre-submission self-check (run before every submit)
 - [ ] Release (not debug) build, tested on a real device
@@ -39,3 +46,7 @@ plain words, then give the exact fix.
 - [ ] Version/build number incremented
 - [ ] Data Safety / App Privacy matches actual behavior
 - [ ] Account deletion path if accounts exist
+- [ ] (Apple) Privacy Manifest present + matches App Privacy answers
+- [ ] (Apple) Every sensitive API has its Info.plist usage string
+- [ ] (Apple) Sign in with Apple offered if social login is used
+- [ ] (Apple) Agreements/Tax/Banking = Active (esp. paid / IAP apps)
