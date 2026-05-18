@@ -1,0 +1,14 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# nothing secret should ever live here, but just in case
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+.env
